@@ -11,6 +11,10 @@ const db = require("./db");
 const dbName = "banco";
 const collectionName = "colec";
 
+server.get("/", (request, response) => {
+    response.sendFile(__dirname+'/index.php');
+});
+
 db.initialize(dbName, collectionName, function (dbCollection) { // Callback deu certo
    // get de todos os itens
    dbCollection.find().toArray(function (err, result) {
